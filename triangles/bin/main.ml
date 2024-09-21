@@ -12,7 +12,7 @@ let interpolate_line (x0 : int) (y0 : int) (x1 : int) (y1 : int) : int list =
   and dy = (abs (y1 - y0)) * -1
   and sy = if y0 < y1 then 1 else -1 in
   let initial_error = dx + dy in
-    
+
   let rec loop (x : int) (y : int) (error : int) (tail : int list) : int list =
     match (x == x1) && (y == y1) with
     | true -> tail
@@ -36,7 +36,7 @@ let interpolate_line (x0 : int) (y0 : int) (x1 : int) (y1 : int) : int list =
 
 let filled_triangle x0 y0 x1 y1 x2 y2 col fb font =
   let points = [(x0, y0) ; (x1, y1) ; (x2, y2)] in
-  let sorted_points = List.sort (fun a b -> 
+  let sorted_points = List.sort (fun a b ->
     let _, ay = a and _, by = b in
     ay - by
   ) points in
@@ -52,18 +52,18 @@ let filled_triangle x0 y0 x1 y1 x2 y2 col fb font =
   assert ((List.length long_edge) == (List.length other_edge));
 
   let spans = List.map2 (fun a b -> (a, b)) long_edge other_edge in
-  List.iteri (fun i s -> 
+  List.iteri (fun i s ->
     let l, r = s in
     Framebuffer.draw_line l (y0 + i) r (y0 + i) col fb
   ) spans;
-  List.iteri (fun i p -> 
+  List.iteri (fun i p ->
     let x, y = p in
     ignore(Framebuffer.draw_char x y font (char_of_int ((int_of_char '0') + i)) (col / 2) fb)
   ) sorted_points
 
 
 let tick t s fb _i =
-  Framebuffer.shader_inplace (fun _p -> 0) fb;
+  Framebuffer.map_inplace (fun _p -> 0) fb;
   let width, height = Screen.dimensions s
   and ft = (Float.of_int t) /. 500.
   and col = (Palette.size (Screen.palette s)) -1 in
@@ -71,7 +71,7 @@ let tick t s fb _i =
   Framebuffer.draw_circle (width / 2) (height / 2) 100. (col / 3) fb;
   Framebuffer.draw_circle (width / 2) (height / 2) 50. (col / 2) fb;
 
-  match (Screen.font s) with 
+  match (Screen.font s) with
   | None -> fb
   | Some font -> (
     filled_triangle
@@ -85,7 +85,7 @@ let tick t s fb _i =
     fb
   )
 
-let () = 
+let () =
   match Font.load_psf_font "thirdparty/tamzen-font/psf/TamzenForPowerline10x20.psf" with
   | Error (reason) -> Printf.printf "Failed to read: %s" reason
   | Ok font -> (

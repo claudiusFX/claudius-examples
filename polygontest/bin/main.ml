@@ -23,7 +23,7 @@ let generate_poly (x : int) (y : int) (r : int) (sides : int) (a : float) (col :
   Primitives.FilledPolygon (shifted, col)
 
 let tick t s fb _i =
-   Framebuffer.shader_inplace (fun _ -> 0) fb;
+   Framebuffer.map_inplace (fun _ -> 0) fb;
   let fb = Framebuffer.init (Screen.dimensions s) (fun _ _ -> 0) in
   let w, h = Screen.dimensions s in
   let ft = Float.of_int t in

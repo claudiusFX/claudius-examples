@@ -3,7 +3,9 @@ open Claudius
 let outer_radius = 140.
 let inner_radius = 100.
 
-let boot s = 
+let prev = Framebuffer.init (480, 480) (fun _ _ -> 0)
+
+let boot s =
   let max_col = (Palette.size (Screen.palette s)) - 1 in
   let w, h = Screen.dimensions s in
   let fb = Framebuffer.init (w, h) (fun _x _y -> 0) in
@@ -15,23 +17,23 @@ let boot s =
     let y = Int.of_float ((outer_radius +. 1.) *. (sin angle)) in
     Framebuffer.pixel_write (x + (w/2)) (y + (h/2)) (max_col - 1) fb
   done;
+  Framebuffer.map2_inplace (fun _ p -> p) prev fb;
   fb
 
-
-let tick_d t s fb _i =
+let tick_d t s _fb _i =
   let w, h = Screen.dimensions s in
   let cx = (w/2) and cy = (h/2) in
   let delta = Framebuffer.init (w, h) (fun _x _y -> 0) in
-  Framebuffer.shaderi_inplace (fun x y ofb -> 
+  Framebuffer.mapi_inplace (fun x y ofb ->
     let op = Framebuffer.pixel_read x y ofb in
     match op with
     | None -> 0
-    | Some (p) -> 
+    | Some (p) ->
         match p with
         | 0 -> 0
         | 255 -> 255
         | i -> (
-          let dx = Float.of_int(x - cx) 
+          let dx = Float.of_int(x - cx)
           and dy = Float.of_int(y - cy) in
           let wobble = 0.05 *. sin((Float.of_int t) /. 100.) in
           let angle = (atan2 dy dx) +. ((Random.float wobble) -. (wobble /. 2.))
@@ -42,17 +44,18 @@ let tick_d t s fb _i =
           Framebuffer.pixel_write (nx + cx) (ny + cy) col delta;
           col - 1
     )
-  ) fb;
-  Framebuffer.merge_inplace (+) fb delta;
-  fb
+  ) prev;
+  Framebuffer.map2_inplace (+) prev delta;
+  Framebuffer.map (fun p -> if p >= 0 && (p < 256) then p else 0) prev
+
 
 let tick t s fb i =
   if ((t mod 200) == 0) then
     boot s
-  else 
+  else
     tick_d t s fb i
 
 let () =
   Palette.generate_mono_palette 256 |>
   Screen.create 480 480 1 |>
-  Base.run "Genuary 18: Bauhaus" (Some boot) tick 
+  Base.run "Genuary 18: Bauhaus" (Some boot) tick

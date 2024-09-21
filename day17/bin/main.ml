@@ -48,7 +48,7 @@ let tick t s fb _i =
   let fcol = Float.of_int (col + 1) in
   let inner_radius = 100
   and outer_radius = 131 in
-  Framebuffer.shader_inplace (fun p ->
+  Framebuffer.map_inplace (fun p ->
   match p with
   | _ -> 0
   ) fb;

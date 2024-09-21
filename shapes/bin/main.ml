@@ -1,15 +1,15 @@
 open Claudius
 
 let tick t _s prev _i =
-  let buffer = Framebuffer.shader (fun pixel -> 
-    match pixel with 
+  let buffer = Framebuffer.map (fun pixel ->
+    match pixel with
     | 0 -> 0
     | x -> x - 1
   ) prev in
 
   let ft = (Float.of_int t) /. 50. in
 
-  Framebuffer.draw_line 
+  Framebuffer.draw_line
     (Int.of_float(50. *. sin ft) + 100)
     (Int.of_float(50. *. cos ft) + 100)
     (Int.of_float(-50. *. sin ft) + 100)
@@ -22,11 +22,11 @@ let tick t _s prev _i =
   done;
 
   let v = (t/5 ) mod 50 in
-  Framebuffer.draw_rect (270 + v) (50 + v) (100 - (v * 2)) (100 - (v * 2)) 15 buffer; 
+  Framebuffer.draw_rect (270 + v) (50 + v) (100 - (v * 2)) (100 - (v * 2)) 15 buffer;
 
   buffer
 
-let () = 
+let () =
   Palette.generate_mono_palette 16 |>
   Screen.create 640 480 1 |>
   Base.run "Shapes test" None tick

@@ -4,7 +4,7 @@ let state = ref (0., 0.)
 
 
 let tick _t s fb _i =
-    Framebuffer.shader_inplace (fun p -> 
+    Framebuffer.map_inplace (fun p ->
         if (p < 128) then p else p - 1
     ) fb;
     let _, h = Screen.dimensions (s) in
@@ -20,14 +20,14 @@ let tick _t s fb _i =
             )
         )
     ) in
-    Framebuffer.pixel_write 
+    Framebuffer.pixel_write
         ((Int.of_float (yn *. 50.) + 80))
         ((Int.of_float (xn *. 60.)) + (h / 2))
         maxcol fb;
     state := (xn, yn);
     fb
 
-let () = 
+let () =
     Palette.of_list (List.map (fun x -> x land 0x00ff00) ( (Palette.to_list (Palette.generate_mono_palette 256)))) |>
     Screen.create 640 480 1 |>
     Base.run "Genuary 26: Grow Something" None tick

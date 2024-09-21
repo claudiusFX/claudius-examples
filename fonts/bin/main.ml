@@ -5,7 +5,7 @@ let prose2 = "Hello to FieldFX, thanks for the inspirations and encouragement!"
 
 let tick t s fb _i =
   let width, height = Screen.dimensions s in
-  Framebuffer.shader_inplace (fun _ -> 0) fb;
+  Framebuffer.map_inplace (fun _ -> 0) fb;
   match (Screen.font s) with
   | None -> fb
   | Some font -> (

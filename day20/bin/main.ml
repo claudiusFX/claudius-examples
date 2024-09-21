@@ -3,7 +3,7 @@ open Claudius
 let tick t s fb _i =
   Unix.sleepf 0.005;
   let special = ((t mod 200) != 0) in
-  Framebuffer.shader_inplace (fun p ->
+  Framebuffer.map_inplace (fun p ->
     match p with
     | 0 -> 0
     | 255 -> if special then 255 else 254
@@ -18,7 +18,7 @@ let tick t s fb _i =
     let _ = Framebuffer.draw_char ((x * 22) + 20) ((y * 22) + 15) font ch col fb in ();
   ); fb
 
-let () = 
+let () =
   match Font.load_psf_font "thirdparty/tamzen-font/psf/TamzenForPowerline10x20.psf" with
   | Error (reason) -> Printf.printf "Failed to read: %s" reason
   | Ok font -> (

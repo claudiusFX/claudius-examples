@@ -38,7 +38,7 @@ let project (point: float * float * float * float * float * float * int) (t : in
 (* ----- *)
 
 let tick t s fb _i =
-  Framebuffer.shader_inplace (fun _pixel -> 0) fb;
+  Framebuffer.map_inplace (fun _pixel -> 0) fb;
 
   (* Work out next point *)
   let next = List.map lorenz !cur in

@@ -49,7 +49,7 @@ let tick t s fb _i =
   let inner_radius = 100
   and outer_radius = 131 in
   let tscale = 300. in
-  Framebuffer.shader_inplace (fun p ->
+  Framebuffer.map_inplace (fun p ->
   match p with
   | _ -> if ((sin (ft /. tscale)) >= 0.) then 16 else 111
   ) fb;
@@ -77,7 +77,7 @@ let tick t s fb _i =
           inner_radius
           4
           (((Float.pi *. (1. /. 4.) *. (0.0 +. (cos (ft /. tscale))))) +. (Float.pi /. 4.))
-          16 
+          16
           (* (127 -((Int.of_float ((fcol *. 0.25) *. (cos (ft /. 150.)))) + ((col * 3) / 4))) *)
       )
   ))) |> Framebuffer.render fb;

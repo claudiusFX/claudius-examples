@@ -14,25 +14,25 @@ let drawpoly (x : int) (y : int) (r : int) (sides : int) (a : float) (col : int)
     match i with
     | 0 -> next :: rest
     | _ -> next :: loop (i - 1) rest
-  ) in 
+  ) in
   let points = loop (sides - 1) [] in
-  let shifted = List.map (fun (p : Primitives.point) : Primitives.point -> 
+  let shifted = List.map (fun (p : Primitives.point) : Primitives.point ->
     {
       x = p.x + x ;
       y = p.y + y ;
     }
   ) points in
   Primitives.Polygon (shifted, col)
-  
+
 (* ----- *)
 
 let boot s =
   Framebuffer.init (Screen.dimensions s) (fun _x _y -> 0)
-  
+
 let tick t s prev _i =
   let w, h = Screen.dimensions s in
   (* Fade what came before *)
-  let buffer = Framebuffer.shader (fun pixel ->
+  let buffer = Framebuffer.map (fun pixel ->
     match pixel with
     | 0 -> pixel
     | 16 -> 0

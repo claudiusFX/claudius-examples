@@ -4,14 +4,14 @@ let vapour_palette = "000:2420387400b86930c35e60ce5390d94ea8de48bfe356cfe164dfdf
 
 
 
-let boot (screen : Screen.t) : Framebuffer.t = 
+let boot (screen : Screen.t) : Framebuffer.t =
   let width, height = Screen.dimensions screen in
   let buffer = Framebuffer.init (width, height) (fun _x _y -> 0) in
   Framebuffer.filled_circle (width / 2) (height / 2) (Float.of_int (height / 2)) 1 buffer;
   buffer
 
 let tick (t : int) (screen : Screen.t) (prev : Framebuffer.t) (_inputs : Base.KeyCodeSet.t) : Framebuffer.t =
-  let buffer = Framebuffer.shader (fun pixel ->
+  let buffer = Framebuffer.map (fun pixel ->
     match pixel with
     | 0 | 1 -> pixel
     | _ -> (pixel - 1)
@@ -46,7 +46,7 @@ let tick (t : int) (screen : Screen.t) (prev : Framebuffer.t) (_inputs : Base.Ke
 
 (* ----- *)
 
-let () = 
+let () =
   Palette.load_tic80_palette vapour_palette |>
   Screen.create 640 480 1 |>
   Base.run "TCC Day 8 Extra" (Some boot) tick

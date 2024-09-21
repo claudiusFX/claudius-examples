@@ -32,7 +32,7 @@ let boot s =
 
 let tick _t s prev _i =
   (* Fade what came before *)
-  let buffer = Framebuffer.shader (fun pixel ->
+  let buffer = Framebuffer.map (fun pixel ->
     match pixel with
     | 0 -> pixel
     | _ -> (pixel - 1)
