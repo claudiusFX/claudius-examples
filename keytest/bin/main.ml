@@ -9,7 +9,7 @@ let tick _t s _prev inputs =
   | None -> ()
   | Some font -> (
     List.iteri (fun i c ->
-      let s = Printf.sprintf "0x%08x" c in
+      let s = Printf.sprintf "0x%08x" (Base.PlatformKey.to_backend_keycode c) in
       ignore(Framebuffer.draw_string 5 (i * 12) font s 8 fb)
     ) (Base.KeyCodeSet.to_list inputs)
   ));
@@ -18,11 +18,11 @@ let tick _t s _prev inputs =
     fun c (x, y) ->
       let w, h = Screen.dimensions s in
       match c with
-      | 0x4000004F -> (x + 1, y)
-      | 0x40000050 -> (x - 1, y)
-      | 0x40000051 -> (x, y + 1)
-      | 0x40000052 -> (x, y - 1)
-      | 0x00000020 -> (w / 2, h / 2)
+      | Key.Right -> (x + 1, y)
+      | Key.Left -> (x - 1, y)
+      | Key.Down -> (x, y + 1)
+      | Key.Up -> (x, y - 1)
+      | Key.Space -> (w / 2, h / 2)
       | _ -> (x, y)
   ) (Base.KeyCodeSet.to_list inputs) !pos in
 
