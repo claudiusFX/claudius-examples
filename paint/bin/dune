@@ -1,0 +1,4 @@
+(executable
+ (public_name paint)
+ (name main)
+ (libraries paint claudius))
