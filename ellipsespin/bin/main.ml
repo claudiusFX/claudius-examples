@@ -5,7 +5,8 @@ let tick t s _p _i =
   let w, h = Screen.dimensions s in
   let buf = Framebuffer.init (w, h) (fun _ _ -> 0) in
 
-  Framebuffer.draw_ellipse (w / 2) (h / 2) (150.0 *. sin ft) 110.0 15 buf;
+  let ellipse_width = 75.0 +. (75.0 *. sin ft) in 
+  Framebuffer.draw_ellipse (w / 3) (h / 3) ellipse_width 110.0 50 buf;
   buf
 
 let () =
