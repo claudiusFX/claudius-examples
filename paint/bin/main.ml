@@ -32,28 +32,31 @@ let tick _ s buffer (inputs : Base.input_state) : Framebuffer.t =
 	let cols = (Palette.size (Screen.palette s)) in
 	let size = h / cols in
 
-	match (Mouse.is_button_pressed inputs.mouse Mouse.Left) with
-	| false -> (
-		last_coord := None;
-		buffer
-	)
-	| true -> (
-		let x, y = Mouse.get_position inputs.mouse in
 
-		let in_palette = x >= (w - size) in
+	List.iter (fun e ->
+		match e with
+		| Mouse.Button_up (Left, _) -> (
+			last_coord := None;
+		)
+		| Mouse.Button_down (Left, (x, y)) -> (
+			if (x >= (w - size)) then (
+				col := y / size
+			);
+			last_coord := Some (x, y)
+		)
+		| Mouse.Drag (Left, (x, y)) -> (
 
-		match !last_coord with
-		| None -> (
-			last_coord := (match in_palette with false -> Some (x, y) | true -> None);
-			col := (match in_palette with true -> y / size | false -> !col);
-			buffer
+			match !last_coord with
+			| None -> (
+			)
+			| Some (ox, oy) -> (
+				last_coord := Some (x, y);
+				Framebuffer.draw_line ox oy x y (!col) buffer
+			)
 		)
-		| Some (ox, oy) -> (
-			last_coord := Some (x, y);
-			Framebuffer.draw_line ox oy x y (!col) buffer;
-			buffer
-		)
-	)
+		| _ -> ()
+	) ( Mouse.get_events inputs.mouse);
+	buffer
 
 let () =
 	Palette.generate_mac_palette () |>
