@@ -1,0 +1,4 @@
+(executable
+ (public_name ellipse)
+ (name main)
+ (libraries claudius))
