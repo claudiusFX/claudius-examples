@@ -9,7 +9,7 @@ let y_position = ref 100.0
 let radius = 55
 let color = 15
 
-let tick t (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.KeyCodeSet.t) : Framebuffer.t =
+let tick t (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.input_state) : Framebuffer.t =
   let width, height = Screen.dimensions screen in
   let buffer = Framebuffer.init (width, height) (fun _x _y -> 0) in
 
