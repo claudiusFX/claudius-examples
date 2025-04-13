@@ -14,6 +14,10 @@
 (license ICS)
 
 (pin
+  (url "git+https://github.com/claudiusFX/ocaml-gif.git")
+  (package (name giflib)))
+
+(pin
   (url "git+https://github.com/claudiusFX/claudius.git")
   (package (name claudius)))
 
