@@ -1,4 +1,4 @@
-(lang dune 3.12)
+(lang dune 3.17)
 
 (name claudius-examples)
 
@@ -12,6 +12,18 @@
 (maintainers "Michael Dales <michael@digitalflapjack.com>")
 
 (license ICS)
+
+(pin
+  (url "git+https://github.com/claudiusFX/ocaml-gif.git")
+  (package (name giflib)))
+
+(pin
+  (url "git+https://github.com/claudiusFX/claudius.git")
+  (package (name claudius)))
+
+(pin
+  (url "git+https://github.com/claudiusFX/bdfparser.git")
+  (package (name bdfparser)))
 
 (package
  (name claudius-examples)

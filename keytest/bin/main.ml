@@ -2,7 +2,7 @@ open Claudius
 
 let pos = ref (0, 0)
 
-let tick _t s _prev inputs =
+let tick _t s _prev (inputs : Base.input_state) =
   let fb = Framebuffer.init (Screen.dimensions s) (fun _x _y -> 0) in
   (
   match (Screen.font s) with
@@ -11,7 +11,7 @@ let tick _t s _prev inputs =
     List.iteri (fun i c ->
       let s = Printf.sprintf "0x%08x" (Base.PlatformKey.to_backend_keycode c) in
       ignore(Framebuffer.draw_string 5 (i * 12) font s 8 fb)
-    ) (Base.KeyCodeSet.to_list inputs)
+    ) (Base.KeyCodeSet.to_list inputs.keys)
   ));
 
   let dx, dy = List.fold_right (
@@ -24,7 +24,7 @@ let tick _t s _prev inputs =
       | Key.Up -> (x, y - 1)
       | Key.Space -> (w / 2, h / 2)
       | _ -> (x, y)
-  ) (Base.KeyCodeSet.to_list inputs) !pos in
+  ) (Base.KeyCodeSet.to_list inputs.keys) !pos in
 
   Framebuffer.filled_circle dx dy 5.0 8 fb;
   pos := (dx, dy);
