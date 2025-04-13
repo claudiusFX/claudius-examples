@@ -1,7 +1,7 @@
   open Claudius
 
-  let tick (_t : int) (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.KeyCodeSet.t) : Framebuffer.t =
   let tick (_t : int) (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.input_state) : Framebuffer.t =
+>>>>>>> File-updates
     let width, height = Screen.dimensions screen in
     let buffer = Framebuffer.init (width, height) (fun _x _y -> 0) in
   
