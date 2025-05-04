@@ -71,25 +71,19 @@ let tick t s fb _i =
   Framebuffer.draw_circle (width / 2) (height / 2) 100. (col / 3) fb;
   Framebuffer.draw_circle (width / 2) (height / 2) 50. (col / 2) fb;
 
-  match (Screen.font s) with
-  | None -> fb
-  | Some font -> (
-    filled_triangle
-      ((Int.of_float (50. *. (sin (ft)))) + (width / 2))
-      ((Int.of_float (50. *. (cos (ft)))) + (height / 2))
-      ((Int.of_float (150. *. (sin (ft +. (Float.pi *. 1.5))))) + (width / 2))
-      ((Int.of_float (150. *. (cos (ft +. (Float.pi *. 1.5))))) + (height / 2))
-      ((Int.of_float (100. *. (sin (ft +. 2.)))) + (width / 2))
-      ((Int.of_float (100. *. (cos (ft +. 2.)))) + (height / 2))
-      col fb font;
-    fb
-  )
+  let font =Screen.font s in
+  filled_triangle
+    ((Int.of_float (50. *. (sin (ft)))) + (width / 2))
+    ((Int.of_float (50. *. (cos (ft)))) + (height / 2))
+    ((Int.of_float (150. *. (sin (ft +. (Float.pi *. 1.5))))) + (width / 2))
+    ((Int.of_float (150. *. (cos (ft +. (Float.pi *. 1.5))))) + (height / 2))
+    ((Int.of_float (100. *. (sin (ft +. 2.)))) + (width / 2))
+    ((Int.of_float (100. *. (cos (ft +. 2.)))) + (height / 2))
+    col fb font;
+  fb
 
 let () =
-  match Font.load_psf_font "thirdparty/tamzen-font/psf/TamzenForPowerline10x20.psf" with
-  | Error (reason) -> Printf.printf "Failed to read: %s" reason
-  | Ok font -> (
-    Palette.of_list (List.rev (Palette.to_list (Palette.generate_mono_palette 16))) |>
-    Screen.create_with_font 640 480 1 font |>
-    Base.run "Triangle testing" None tick
-  )
+  Palette.of_list (List.rev (Palette.to_list (Palette.generate_mono_palette 16))) |>
+  Screen.create 640 480 1 |>
+  Base.run "Triangle testing" None tick
+
