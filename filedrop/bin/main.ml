@@ -5,7 +5,7 @@ let image : GIF.t option ref = ref None
 
 let draw_gif t s gif fb =
 	let c = GIF.image_count gif in
-	let frame = ((t / 5) mod c) in
+	let frame = ((t / 2) mod c) in
 	let i = GIF.get_image gif frame in
 
 	let new_pal = Palette.of_list ( 0x000000 :: 0xFFFFFF :: List.map (fun (r, g, b) ->
@@ -20,7 +20,7 @@ let draw_gif t s gif fb =
 	and pixels = Image.pixels i in
 	let transparent = match (Image.transparent i) with
 	  | None -> -1
-	| Some x -> x
+		| Some x -> x
 	in
 	let sxoff = (sw - gw) / 2
 	and syoff = (sh - gh) / 2 in
@@ -61,7 +61,11 @@ let tick t s prev (inputs : Base.input_state) =
 	match !image, updated with
 	| None, true -> boot s
 	| None, false -> prev
-	| Some img, false -> draw_gif t s img prev
+	| Some img, false -> (
+		match GIF.image_count img with
+		| 1 -> prev
+		| _ ->  draw_gif t s img prev
+	)
 	| Some img, true -> (
 		Framebuffer.init (Screen.dimensions s) (fun _ _ -> 0) |>
 		draw_gif t s img
