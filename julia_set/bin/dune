@@ -1,0 +1,4 @@
+(executable
+ (public_name julia_set)
+ (name main)
+ (libraries julia_set claudius))
