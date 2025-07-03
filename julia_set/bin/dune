@@ -1,4 +1,4 @@
 (executable
- (public_name day4)
+ (public_name julia_set)
  (name main)
- (libraries day4 claudius))
+ (libraries julia_set claudius))

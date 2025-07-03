@@ -1,2 +1,2 @@
 (test
- (name test_day4))
+ (name test_julia_set))

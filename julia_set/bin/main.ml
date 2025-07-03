@@ -39,4 +39,4 @@ let tick t s _p _i =
 let () =
   let pal = 0x000000 :: (List.rev (Palette.to_list (Palette.generate_plasma_palette 31))) in
   let screen = Screen.create 640 480 1 (Palette.of_list pal) in
-  Base.run "Genuary Day 4: Pixels" None tick screen
+  Base.run "Julia Set" None tick screen
