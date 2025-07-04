@@ -35,16 +35,16 @@ let tick _ s buffer (inputs : Base.input_state) : Framebuffer.t =
 
 	List.iter (fun e ->
 		match e with
-		| Mouse.Button_up (Left, _) -> (
+		| Event.MouseButtonUp (Left, _) -> (
 			last_coord := None;
 		)
-		| Mouse.Button_down (Left, (x, y)) -> (
+		| Event.MouseButtonDown (Left, (x, y)) -> (
 			if (x >= (w - size)) then (
 				col := y / size
 			);
 			last_coord := Some (x, y)
 		)
-		| Mouse.Drag (Left, (x, y)) -> (
+		| Event.MouseDrag (Left, (x, y)) -> (
 
 			match !last_coord with
 			| None -> (
@@ -55,7 +55,7 @@ let tick _ s buffer (inputs : Base.input_state) : Framebuffer.t =
 			)
 		)
 		| _ -> ()
-	) ( Mouse.get_events inputs.mouse);
+	) inputs.events;
 	buffer
 
 let () =
