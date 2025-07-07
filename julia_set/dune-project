@@ -5,15 +5,15 @@
 (generate_opam_files true)
 
 (source
- (github mdales/claudius))
+ (github ClaudiusFX/claudius))
 
-(authors "Michael Dales <michael@digitalflapjack.com>")
+(authors "Michael Dales <michael@digitalflapjack.com>" "Shreya Pawaskar <shreya.pawaskar.main@gmail.com>")
 
-(maintainers "Michael Dales <michael@digitalflapjack.com>")
+(maintainers "Michael Dales <michael@digitalflapjack.com>" "Shreya Pawaskar <shreya.pawaskar.main@gmail.com>")
 
 (license ICS)
 
-(documentation https://url/to/documentation)
+(documentation https://github.com/claudiusFX/claudius-examples/tree/main/julia_set)
 
 (package
  (name julia_set)
