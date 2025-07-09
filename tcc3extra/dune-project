@@ -1,6 +1,6 @@
 (lang dune 3.12)
 
-(name day3extra)
+(name tcc3extra)
 
 (generate_opam_files true)
 
@@ -16,7 +16,7 @@
 (documentation https://url/to/documentation)
 
 (package
- (name day3extra)
+ (name tcc3extra)
  (synopsis "A short synopsis")
  (description "A longer description")
  (depends ocaml dune)

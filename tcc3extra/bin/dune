@@ -1,4 +1,4 @@
 (executable
- (public_name day3extra)
+ (public_name tcc3extra)
  (name main)
- (libraries day3extra claudius))
+ (libraries tcc3extra claudius))
