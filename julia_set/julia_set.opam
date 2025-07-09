@@ -3,13 +3,19 @@ opam-version: "2.0"
 synopsis: "An example on Julia Set"
 description:
   "Julia Sets are intricate fractal shapes that arise from iterating a simple mathematical formula in the complex plane."
-maintainer: ["Michael Dales <michael@digitalflapjack.com>"]
-authors: ["Michael Dales <michael@digitalflapjack.com>"]
+maintainer: [
+  "Michael Dales <michael@digitalflapjack.com>"
+  "Shreya Pawaskar <shreya.pawaskar.main@gmail.com>"
+]
+authors: [
+  "Michael Dales <michael@digitalflapjack.com>"
+  "Shreya Pawaskar <shreya.pawaskar.main@gmail.com>"
+]
 license: "ICS"
 tags: ["graphics" "rendering" "paletted"]
-homepage: "https://github.com/mdales/claudius"
-doc: "https://url/to/documentation"
-bug-reports: "https://github.com/mdales/claudius/issues"
+homepage: "https://github.com/ClaudiusFX/claudius"
+doc: "https://github.com/claudiusFX/claudius-examples/tree/main/julia_set"
+bug-reports: "https://github.com/ClaudiusFX/claudius/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.12"}
@@ -29,4 +35,4 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/mdales/claudius.git"
+dev-repo: "git+https://github.com/ClaudiusFX/claudius.git"
