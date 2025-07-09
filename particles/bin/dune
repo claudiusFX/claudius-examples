@@ -1,4 +1,4 @@
 (executable
- (public_name day1)
+ (public_name particles)
  (name main)
  (libraries claudius))
