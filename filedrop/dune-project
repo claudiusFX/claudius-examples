@@ -2,18 +2,16 @@
 
 (name filedrop)
 
-(generate_opam_files true)
-
 (source
- (github username/reponame))
+ (github ClaudiusFX/claudius))
 
-(authors "Author Name <author@example.com>")
+(authors "Michael Dales <michael@digitalflapjack.com>")
 
-(maintainers "Maintainer Name <maintainer@example.com>")
+(maintainers "Michael Dales <michael@digitalflapjack.com>" "Shreya Pawaskar <shreya.pawaskar.main@gmail.com>")
 
-(license LICENSE)
+(license ICS)
 
-(documentation https://url/to/documentation)
+(documentation https://github.com/claudiusFX/claudius-examples/tree/main/filedrop)
 
 (package
  (name filedrop)
@@ -21,6 +19,6 @@
  (description "A longer description")
  (depends ocaml)
  (tags
-  ("add topics" "to describe" your project)))
+  (graphics rendering paletted)))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
