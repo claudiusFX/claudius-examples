@@ -2,8 +2,6 @@
 
 (name julia_set)
 
-(generate_opam_files true)
-
 (source
  (github ClaudiusFX/claudius))
 
