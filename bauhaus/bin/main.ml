@@ -3,7 +3,7 @@ open Claudius
 let outer_radius = 140.
 let inner_radius = 100.
 
-let prev = Framebuffer.init (480, 480) (fun _ _ -> 0)
+let double_buffer = Framebuffer.init (480, 480) (fun _x _y -> 0)
 
 let boot s =
   let max_col = (Palette.size (Screen.palette s)) - 1 in
@@ -17,22 +17,19 @@ let boot s =
     let y = Int.of_float ((outer_radius +. 1.) *. (sin angle)) in
     Framebuffer.pixel_write (x + (w/2)) (y + (h/2)) (max_col - 1) fb
   done;
-  Framebuffer.map2_inplace (fun _ p -> p) prev fb;
   fb
 
-let tick_d t s _fb _i =
+let tick_d t s prev _i =
   let w, h = Screen.dimensions s in
   let cx = (w/2) and cy = (h/2) in
-  let delta = Framebuffer.init (w, h) (fun _x _y -> 0) in
+  Framebuffer.map_inplace (fun _ -> 0) double_buffer;
   Framebuffer.mapi_inplace (fun x y ofb ->
     let op = Framebuffer.pixel_read x y ofb in
     match op with
     | None -> 0
     | Some (p) ->
         match p with
-        | 0 -> 0
-        | 255 -> 255
-        | i -> (
+        | 254 -> (
           let dx = Float.of_int(x - cx)
           and dy = Float.of_int(y - cy) in
           let wobble = 0.05 *. sin((Float.of_int t) /. 100.) in
@@ -40,13 +37,11 @@ let tick_d t s _fb _i =
           and radius = sqrt ((dy *. dy) +. (dx *. dx)) in
           let nx = Int.of_float ((radius +. 2.) *. (cos angle)) in
           let ny = Int.of_float ((radius +. 2.) *. (sin angle)) in
-          let col = i in
-          Framebuffer.pixel_write (nx + cx) (ny + cy) col delta;
-          col - 1
-    )
+          Framebuffer.pixel_write (nx + cx) (ny + cy) 254 double_buffer;
+          255)
+        | x -> x
   ) prev;
-  Framebuffer.map2_inplace (+) prev delta;
-  Framebuffer.map (fun p -> if p >= 0 && (p < 256) then p else 0) prev
+  Framebuffer.map2 (fun b a -> if a != 0 then a else b) prev double_buffer
 
 
 let tick t s fb i =
