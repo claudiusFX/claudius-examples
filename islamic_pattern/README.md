@@ -1,1 +1,1 @@
-An effect that plays with an [Islamic geometric patterns](https://en.wikipedia.org/wiki/Islamic_geometric_patterns), alternativing between rotating the positive and negative spaces.
+An effect that plays with an [Islamic geometric patterns](https://en.wikipedia.org/wiki/Islamic_geometric_patterns), alternating between rotating the positive and negative spaces.
