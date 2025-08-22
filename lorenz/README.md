@@ -1,0 +1,1 @@
+This example draws a classic [Lorenz Attractor](https://en.wikipedia.org/wiki/Lorenz_system) as a line that eventually fades out.

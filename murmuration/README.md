@@ -1,0 +1,1 @@
+This example uses a [Lorenz Attractor](https://en.wikipedia.org/wiki/Lorenz_system) algorithm to attempt to create something that looks like a group of birds in a [murmuration](https://en.wikipedia.org/wiki/Swarm_behaviour). By taking a standard math effect and just changing how it is viewed we can use it to mimic other things!

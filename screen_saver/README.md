@@ -1,0 +1,1 @@
+A recreation of a classic screensaver from the early Macintosh era.

@@ -1,4 +1,4 @@
 (executable
- (public_name paint)
+ (public_name anni_albers)
  (name main)
  (libraries claudius))

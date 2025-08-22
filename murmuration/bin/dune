@@ -1,4 +1,4 @@
 (executable
- (public_name paint)
+ (public_name murmuration)
  (name main)
  (libraries claudius))

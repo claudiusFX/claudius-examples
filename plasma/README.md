@@ -1,0 +1,1 @@
+An example of a simple plasma effect that uses a palette with a large number of colours to achieve a very smooth set of transitions. The plasma shows the kind of effects you can build just using a few simple trig functions.

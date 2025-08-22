@@ -1,0 +1,1 @@
+This example uses the same core algorithm from the [Plasma effect example](/plasma/), but instead of plotting the effect directly to pixels, it is used to create a pseudo-3D landscape of hills and valleys.

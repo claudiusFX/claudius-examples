@@ -1,0 +1,1 @@
+An attempt to recreate the style of pioneering generative artist [Vera Molnár](https://en.wikipedia.org/wiki/Vera_Molnár).

@@ -1,4 +1,4 @@
 (executable
- (public_name paint)
+ (public_name red_hexagon)
  (name main)
  (libraries claudius))

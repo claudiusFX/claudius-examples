@@ -1,0 +1,1 @@
+A homage to the textile artist [Anni Albers](https://en.wikipedia.org/wiki/Anni_Albers), showing that inspiration for digital art can come from different domains.

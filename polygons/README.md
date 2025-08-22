@@ -1,0 +1,1 @@
+A simple example showing how to draw and rotate polygon shapes.
