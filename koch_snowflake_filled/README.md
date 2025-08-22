@@ -1,0 +1,1 @@
+A filled in version of the [Koch fractal example](/koch/), which is slightly more complex because ordering matter more.

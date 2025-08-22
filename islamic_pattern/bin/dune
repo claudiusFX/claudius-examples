@@ -1,4 +1,4 @@
 (executable
- (public_name fern)
+ (public_name islamic_pattern)
  (name main)
  (libraries claudius))

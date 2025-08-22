@@ -1,0 +1,1 @@
+An implementation of the [Barnsley fern fractal](https://en.wikipedia.org/wiki/Barnsley_fern), which slowly renders a fern leaf in increasing detail.

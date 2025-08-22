@@ -1,0 +1,1 @@
+Based on the [Landscape](/landscape/) example, this uses the `hooke` library from opam, which implements [Hooke's law](https://en.wikipedia.org/wiki/Hooke%27s_law) of spring dynamics to add some physics to an example.

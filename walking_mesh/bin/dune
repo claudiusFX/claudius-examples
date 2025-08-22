@@ -1,4 +1,4 @@
 (executable
- (public_name fern)
+ (public_name walking_mesh)
  (name main)
  (libraries claudius))

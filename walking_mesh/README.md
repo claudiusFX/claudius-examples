@@ -1,0 +1,1 @@
+An example of how you can have a functional effect that looks like it must store a lot of state, but doesn't. Watching the effect one would perhaps assume we store the mesh in an array somewhere, but in fact each frame is generated for every update, making this effect functional in nature.

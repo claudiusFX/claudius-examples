@@ -1,0 +1,1 @@
+A filled version of the [Islamic pattern example](/islamic_pattern/).
