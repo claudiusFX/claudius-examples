@@ -1,0 +1,4 @@
+(executable
+ (public_name red_hexagon)
+ (name main)
+ (libraries claudius))

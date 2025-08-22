@@ -1,0 +1,1 @@
+Inspired by one of the challenges from [Tiny Code Christmas](https://tcc.lovebyte.party), this example shows how by stacking two different math functions, one to create concentric circles and one to create a fan of lines from the centre of the screen, you can create something that looks like more than the sum of its parts.

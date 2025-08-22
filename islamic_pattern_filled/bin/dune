@@ -1,0 +1,4 @@
+(executable
+ (public_name islamic_pattern_filled)
+ (name main)
+ (libraries claudius))

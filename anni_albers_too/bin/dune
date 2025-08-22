@@ -1,0 +1,4 @@
+(executable
+ (public_name anni_albers_too)
+ (name main)
+ (libraries claudius))

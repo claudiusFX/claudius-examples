@@ -10,8 +10,8 @@ type item = {
   target : float ;
 }
 
-let init_spheres (_t : int) = 
-  Array.init grid_depth (fun _z -> 
+let init_spheres (_t : int) =
+  Array.init grid_depth (fun _z ->
     Array.init grid_width (fun _x ->
       {
         spring = Spring.make ~delta_time:(30. /. 5_000.) ~angular_freq:7. ~damping_ratio:0.15 ;
@@ -23,7 +23,7 @@ let init_spheres (_t : int) =
 
 let spheres = init_spheres 42
 
-let calc_y fx fz ft = 
+let calc_y fx fz ft =
   let prey = ((sin ((sin (ft /. 2.)) +. fx /. 50.) *. 3.) +. (sin((fz /. 50.) -. ft)) *. 3.) in
   if prey > 0. then prey *. 3. else prey
 
@@ -33,7 +33,7 @@ let reset_spheres (t : int) (spheres : item array array) =
     let fz = (Float.of_int z) *. 8. in
     Array.mapi_inplace (fun x _ ->
       let fx = ((Float.of_int (x - (grid_width / 2))) *. 3.) in
-      let y1 = calc_y fx fz ft 
+      let y1 = calc_y fx fz ft
       and y2 = calc_y fx fz (ft +. 20.) in
       {
         spring = Spring.make ~delta_time:(30. /. 5_000.) ~angular_freq:7. ~damping_ratio:0.15;
@@ -65,7 +65,7 @@ let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.i
     Array.iteri (fun x item ->
       let y = item.snapshot.position in
       let fx = ((Float.of_int (x - (grid_width / 2))) *. 3.) in
-      let px = (width / 2) + Int.of_float (fx /. (fz *. 1.8 -. 1200.) *. 1200.) 
+      let px = (width / 2) + Int.of_float (fx /. (fz *. 1.8 -. 1200.) *. 1200.)
       and py = (Int.of_float ((y -. 40.) /. (fz *. 1.8 -. 1200.) *. 1200.)) + 100
       and col = ((Int.of_float (y *. 4.)) mod palsize) in
       let dot = (20. /. (78. -. (fz /. 8.))) in
@@ -80,4 +80,4 @@ let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.i
 let () =
   Palette.of_list (0x666666 :: (Palette.to_list (Palette.generate_plasma_palette 255))) |>
   Screen.create 640 480 1 |>
-  Base.run "Genuary Day 15: Use a Physics Library" None tick
+  Base.run "Use a Physics Library" None tick

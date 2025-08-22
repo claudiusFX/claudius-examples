@@ -30,4 +30,4 @@ let tick _t s fb _i =
 let () =
     Palette.of_list (List.map (fun x -> x land 0x00ff00) ( (Palette.to_list (Palette.generate_mono_palette 256)))) |>
     Screen.create 640 480 1 |>
-    Base.run "Genuary 26: Grow Something" None tick
+    Base.run "Grow Something" None tick

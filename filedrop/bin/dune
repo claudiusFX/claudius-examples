@@ -1,4 +1,4 @@
 (executable
  (public_name filedrop)
  (name main)
- (libraries filedrop claudius giflib))
+ (libraries claudius giflib))

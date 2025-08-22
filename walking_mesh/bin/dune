@@ -1,0 +1,4 @@
+(executable
+ (public_name walking_mesh)
+ (name main)
+ (libraries claudius))

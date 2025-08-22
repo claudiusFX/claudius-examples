@@ -1,0 +1,1 @@
+Another example inspired by two [Genuary](https://genuary.art) prompts, mixing typography and an 8x8 grid.

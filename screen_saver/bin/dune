@@ -1,0 +1,4 @@
+(executable
+ (public_name screen_saver)
+ (name main)
+ (libraries claudius))

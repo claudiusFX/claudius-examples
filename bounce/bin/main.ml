@@ -20,8 +20,8 @@ let filled = ref true
 (* Squash and stopping parameters :) Must stop after some time. This is to make sure that the whole infinitesimal bounce effect (Rolling) is avoided *)
 let squash_factor              = 0.25
 let fps                        = 60.0
-let stop_after_frames          = int_of_float (2.0 *. fps) 
-let bounce_vis_vel_threshold   = 2.0                        
+let stop_after_frames          = int_of_float (2.0 *. fps)
+let bounce_vis_vel_threshold   = 2.0
 let last_bounce_t = ref 0
 
 (* where the key states are being tracked *)
@@ -49,12 +49,12 @@ let tick t s _prev (inputs : Base.input_state) =
     x_vel := if !x_pos > max_width /. 2.0 then -.2.0 else 2.0;
     y_vel := 0.0;
     last_bounce_t := t;
-    was_space_pressed := true 
+    was_space_pressed := true
   end;
 
   if Base.KeyCodeSet.mem Key.X inputs.keys && not !was_x_pressed then begin
     filled := not !filled;
-    was_x_pressed := true  
+    was_x_pressed := true
   end;
 
   (* Update physics *)
@@ -103,14 +103,14 @@ let tick t s _prev (inputs : Base.input_state) =
 
   (* Reset key states *)
   if not (Base.KeyCodeSet.mem Key.Space inputs.keys) then
-    was_space_pressed := false; 
+    was_space_pressed := false;
   if not (Base.KeyCodeSet.mem Key.X inputs.keys) then
-    was_x_pressed := false;  
+    was_x_pressed := false;
 
   fb
 
 let () =
   Random.self_init ();
-  Palette.generate_plasma_palette 18 
+  Palette.generate_plasma_palette 18
   |> Screen.create (int_of_float max_width) (int_of_float max_height) 1
-  |> Base.run "Bounce Ball Mini Game" None tick
+  |> Base.run "Bounce Ball" None tick

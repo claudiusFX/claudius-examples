@@ -1,0 +1,1 @@
+An implementation of the [Koch snowflake fractal](https://en.wikipedia.org/wiki/Koch_snowflake), which is a good example of using recursion in an effect.

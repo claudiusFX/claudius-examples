@@ -1,0 +1,4 @@
+(executable
+ (public_name murmuration)
+ (name main)
+ (libraries claudius))

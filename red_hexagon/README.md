@@ -1,0 +1,1 @@
+An example developed for [Genuary](https://genuary.art) under the theme of "Hexagons". It shows rotating shapes drawn with a cycling palette of colours, with the hexagons highlighted in a different color.

@@ -1,0 +1,4 @@
+(executable
+ (public_name koch_snowflake_filled)
+ (name main)
+ (libraries claudius))

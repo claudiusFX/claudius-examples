@@ -1,0 +1,4 @@
+(executable
+ (public_name vera_molnar)
+ (name main)
+ (libraries claudius))
