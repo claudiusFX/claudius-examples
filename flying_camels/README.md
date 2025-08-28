@@ -1,0 +1,1 @@
+This example uses the ability to load images as a Picture.t in Claudius to recreate the old [Flying Windows Screensaver](https://microsoft.fandom.com/wiki/Flying_Windows).

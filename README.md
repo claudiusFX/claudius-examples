@@ -11,6 +11,7 @@ To run these you will need to install Claudius via opam, and then you can `dune 
 These examples just show a single feature of Claudius, and are a good place to start if you're trying to understand how Claudius works.
 
 * [Bounce](/bounce/) - example of a bouncing ball made from ellipses.
+* [Flying Camels](/flying_camels/) - example of using image files to recreate a classic screen saver effect.
 * [Polygons](/polygons/) - rotating filled polygons.
 * [Red Hexagon](/red_hexagon/) - a different style of rotating polyons.
 * [Screen saver](/screen_saver/) - a recreation of a classic screen saver effect from the early Macintosh era.
