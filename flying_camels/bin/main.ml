@@ -31,8 +31,7 @@ let tick t s _f _e =
   let fb = Framebuffer.init (Screen.dimensions s) (fun _ _ -> 0) in
   let img = (Screen.pictures s).(0) in
   let w, h = Screen.dimensions s in
-  let img_w = Picture.original_width img
-  and img_h = Picture.original_height img in
+  let img_w, img_h = Picture.dimensions img in
 
   let points = generate_points (Screen.dimensions s) |> move_points t in
 
