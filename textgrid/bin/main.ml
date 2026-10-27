@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let tick t s fb _i =
   Unix.sleepf 0.005;

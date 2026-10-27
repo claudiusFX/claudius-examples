@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let tick t s _prev _i =
   let palsize = Palette.size (Screen.palette s) in

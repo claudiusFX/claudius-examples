@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 type turtle = {
   angle : float;
@@ -69,7 +70,7 @@ let star (length : float) (level : int) (t : turtle) : turtle =
 
 (* ----- *)
 
-let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.input_state): Framebuffer.t =
+let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) _inputs: Framebuffer.t =
   let width, height = Screen.dimensions screen in
   let buffer = Framebuffer.init (width, height) (fun _x _y -> 0) in
 

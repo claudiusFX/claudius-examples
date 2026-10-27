@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let dt = 0.001
 

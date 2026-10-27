@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let outer_radius = 140.
 let inner_radius = 100.

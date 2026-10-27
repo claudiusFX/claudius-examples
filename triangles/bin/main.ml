@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let _draw_triangle x0 y0 x1 y1 x2 y2 col fb =
   Framebuffer.draw_line x0 y0 x1 y1 col fb;

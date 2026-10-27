@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let vapour_palette = "000:7400b86930c35e60ce5390d94ea8de48bfe356cfe164dfdf72efdd80ffdb7400b86930c35e60ce5390d94ea8de48bfe3"
 

@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let boot s =
 	let w, h = Screen.dimensions s in
@@ -26,7 +27,7 @@ let boot s =
 let last_coord : (int * int) option ref = ref None
 let col = ref 15
 
-let tick _ s buffer (inputs : Base.input_state) : Framebuffer.t =
+let tick _ s buffer inputs : Framebuffer.t =
 
 	let w, h = Screen.dimensions s in
 	let cols = (Palette.size (Screen.palette s)) in

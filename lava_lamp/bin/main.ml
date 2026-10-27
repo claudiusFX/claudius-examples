@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let tick t s _p _i =
   Random.init 42;

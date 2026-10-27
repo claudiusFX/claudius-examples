@@ -1,4 +1,4 @@
 (executable
  (public_name koch_snowflake)
  (name main)
- (libraries claudius))
+ (libraries claudius.sdl))

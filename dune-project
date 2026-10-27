@@ -29,7 +29,7 @@
  (name claudius-examples)
  (synopsis "A set of examples using Claudius, the retro fantasy-console library")
  (description "A longer description")
- (depends ocaml dune claudius bdfparser hooke)
+ (depends ocaml dune (claudius (>= 2.0.0)) bdfparser hooke)
  (tags
   (graphics rendering paletted)))
 

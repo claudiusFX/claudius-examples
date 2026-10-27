@@ -1,4 +1,4 @@
 (executable
  (public_name physics)
  (name main)
- (libraries claudius hooke))
+ (libraries claudius.sdl hooke))

@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 open Giflib
 
 let image : GIF.t option ref = ref None
@@ -40,7 +41,7 @@ let boot s =
 	ignore (Framebuffer.draw_string 10 10 font "Drop a GIF here" 1 fb);
 	fb
 
-let tick t s prev (inputs : Base.input_state) =
+let tick t s prev inputs =
 
 	let filename = List.fold_left (fun acc ev ->
 		match ev with
