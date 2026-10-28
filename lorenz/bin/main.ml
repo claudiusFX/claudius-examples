@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let sigma = 10.
 let rho = 28.

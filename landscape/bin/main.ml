@@ -1,6 +1,7 @@
 open Claudius
+open Claudius_sdl
 
-let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) (_inputs : Base.input_state) : Framebuffer.t =
+let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) _inputs : Framebuffer.t =
   Random.init 42;
   let ft = (Float.of_int t) *. 0.02 
   and width, height = Screen.dimensions screen in

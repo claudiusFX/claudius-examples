@@ -1,5 +1,6 @@
 
 open Claudius
+open Claudius_sdl
 
 (* ----- *)
 
@@ -99,7 +100,7 @@ let render_to_primitives (ft : float) (s : Screen.t) (points : point list) : Pri
 
 (* ----- *)
 
-let tick (t : int) (s : Screen.t) (prev : Framebuffer.t) (_inputs : Base.input_state): Framebuffer.t =
+let tick (t : int) (s : Screen.t) (prev : Framebuffer.t) _inputs: Framebuffer.t =
   let buffer = Framebuffer.map (fun pixel ->
     if pixel > 2 then (pixel - 2) else 0
   ) prev in

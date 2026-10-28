@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let generate_poly (x : int) (y : int) (r : int) (sides : int) (a : float) (col : int) =
   let segment_angle = (2. *. Float.pi) /. (Float.of_int sides) in

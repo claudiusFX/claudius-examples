@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let tick t s _p _i =
   let ft = (float_of_int t) /. 1000. in

@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let prism_radius = 100.
 let rainbow = [0xE03A3C ; 0xF6821F ; 0xFCB827 ; 0x62BB47 ; 0x009DDC ; 0x963D97]

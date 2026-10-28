@@ -1,4 +1,4 @@
 (executable
  (public_name fonts)
  (name main)
- (libraries fonts claudius))
+ (libraries fonts claudius.sdl))

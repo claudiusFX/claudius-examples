@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let vapour_palette = "000:2420387400b86930c35e60ce5390d94ea8de48bfe356cfe164dfdf72efdd80ffdb"
 
@@ -10,7 +11,7 @@ let boot (screen : Screen.t) : Framebuffer.t =
   Framebuffer.filled_circle (width / 2) (height / 2) (Float.of_int (height / 2)) 1 buffer;
   buffer
 
-let tick (t : int) (screen : Screen.t) (prev : Framebuffer.t) (_inputs : Base.input_state) : Framebuffer.t =
+let tick (t : int) (screen : Screen.t) (prev : Framebuffer.t) _inputs : Framebuffer.t =
   let buffer = Framebuffer.map (fun pixel ->
     match pixel with
     | 0 | 1 -> pixel

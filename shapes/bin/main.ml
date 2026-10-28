@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 let tick t _s prev _i =
   let buffer = Framebuffer.map (fun pixel ->

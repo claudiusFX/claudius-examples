@@ -1,4 +1,5 @@
 open Claudius
+open Claudius_sdl
 
 (* Declarations *)
 let gravity     = 0.5
@@ -39,11 +40,11 @@ let draw_ball ~x ~y ~xr ~yr ~filled fb =
     done
 
 (* Main update function *)
-let tick t s _prev (inputs : Base.input_state) =
+let tick t s _prev inputs =
   let fb = Framebuffer.init (Screen.dimensions s) (fun _ _ -> 0) in
 
   (* Handle key presses *)
-  if Base.KeyCodeSet.mem Key.Space inputs.keys && not !was_space_pressed then begin
+  if Key.KeyCodeSet.mem Key.Space inputs.keys && not !was_space_pressed then begin
     y_pos := initial_y;
     x_pos := radius +. (Random.float (max_width -. 2.0 *. radius));
     x_vel := if !x_pos > max_width /. 2.0 then -.2.0 else 2.0;
@@ -52,7 +53,7 @@ let tick t s _prev (inputs : Base.input_state) =
     was_space_pressed := true
   end;
 
-  if Base.KeyCodeSet.mem Key.X inputs.keys && not !was_x_pressed then begin
+  if Key.KeyCodeSet.mem Key.X inputs.keys && not !was_x_pressed then begin
     filled := not !filled;
     was_x_pressed := true
   end;
@@ -102,9 +103,9 @@ let tick t s _prev (inputs : Base.input_state) =
   end;
 
   (* Reset key states *)
-  if not (Base.KeyCodeSet.mem Key.Space inputs.keys) then
+  if not (Key.KeyCodeSet.mem Key.Space inputs.keys) then
     was_space_pressed := false;
-  if not (Base.KeyCodeSet.mem Key.X inputs.keys) then
+  if not (Key.KeyCodeSet.mem Key.X inputs.keys) then
     was_x_pressed := false;
 
   fb

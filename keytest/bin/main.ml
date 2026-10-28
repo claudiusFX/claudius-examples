@@ -1,14 +1,15 @@
 open Claudius
+open Claudius_sdl
 
 let pos = ref (0, 0)
 
-let tick _t s _prev (inputs : Base.input_state) =
+let tick _t s _prev inputs =
   let fb = Framebuffer.init (Screen.dimensions s) (fun _x _y -> 0) in
   let font = Screen.font s in
   List.iteri (fun i c ->
-    let s = Printf.sprintf "0x%08x" (Base.PlatformKey.to_backend_keycode c) in
+    let s = Printf.sprintf "0x%08x" (Claudius_sdl.Keysdl.to_backend_keycode c) in
     ignore(Framebuffer.draw_string 5 (i * 12) font s 8 fb)
-  ) (Base.KeyCodeSet.to_list inputs.keys);
+  ) (Key.KeyCodeSet.to_list inputs.keys);
 
   let dx, dy = List.fold_right (
     fun c (x, y) ->
@@ -20,7 +21,7 @@ let tick _t s _prev (inputs : Base.input_state) =
       | Key.Up -> (x, y - 1)
       | Key.Space -> (w / 2, h / 2)
       | _ -> (x, y)
-  ) (Base.KeyCodeSet.to_list inputs.keys) !pos in
+  ) (Key.KeyCodeSet.to_list inputs.keys) !pos in
 
   Framebuffer.filled_circle dx dy 5.0 8 fb;
   pos := (dx, dy);
