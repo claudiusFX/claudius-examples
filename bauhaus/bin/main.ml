@@ -53,5 +53,5 @@ let tick t s fb i =
 
 let () =
   Palette.generate_mono_palette 256 |>
-  Screen.create 480 480 1 |>
-  Base.run "Genuary 18: Bauhaus" (Some boot) tick
+  Screen.create "Genuary 18: Bauhaus" 480 480 |>
+  Base.run ~boot tick

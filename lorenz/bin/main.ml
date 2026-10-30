@@ -51,5 +51,5 @@ let tick _t s prev _i =
 
 let () =
   Palette.of_list (List.rev (Palette.to_list (Palette.generate_mono_palette 1024))) |>
-  Screen.create 640 480 1 |>
-  Base.run "Lorenz Attractor" None tick
+  Screen.create "Lorenz Attractor" 640 480 |>
+  Base.run tick

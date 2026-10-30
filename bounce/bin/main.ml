@@ -113,5 +113,5 @@ let tick t s _prev inputs =
 let () =
   Random.self_init ();
   Palette.generate_plasma_palette 18
-  |> Screen.create (int_of_float max_width) (int_of_float max_height) 1
-  |> Base.run "Bounce Ball" None tick
+  |> Screen.create "Bounce Ball" (int_of_float max_width) (int_of_float max_height)
+  |> Base.run tick

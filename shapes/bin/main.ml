@@ -29,5 +29,5 @@ let tick t _s prev _i =
 
 let () =
   Palette.generate_mono_palette 16 |>
-  Screen.create 640 480 1 |>
-  Base.run "Shapes test" None tick
+  Screen.create "Shapes test" 640 480 |>
+  Base.run tick

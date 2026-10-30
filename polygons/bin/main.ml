@@ -34,5 +34,5 @@ let tick t s fb _i =
 
 let () =
   Palette.of_list (0xffffff :: (Palette.to_list (Palette.generate_plasma_palette 15))) |>
-  Screen.create 640 480 1 |>
-  Base.run "Polygons" None tick
+  Screen.create "Polygons" 640 480 |>
+  Base.run tick

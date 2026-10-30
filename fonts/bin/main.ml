@@ -22,5 +22,5 @@ let tick t s fb _i =
 
 let () =
   Palette.load_tic80_palette tic80_palette |>
-  Screen.create 240 136 3 |>
-  Base.run "Font testing" None tick
+  Screen.create ~scale:3 "Font testing" 240 136 |>
+  Base.run tick

@@ -120,5 +120,5 @@ let tick (t : int) (s : Screen.t) (prev : Framebuffer.t) _inputs: Framebuffer.t 
 (* ----- *)
 
 let () =
-  Screen.create 640 480 1 (Palette.generate_mono_palette 16) |>
-  Base.run "Particles" None tick
+  Screen.create "Particles" 640 480 (Palette.generate_mono_palette 16) |>
+  Base.run tick
