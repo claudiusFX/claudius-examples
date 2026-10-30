@@ -74,5 +74,5 @@ let tick t s prev inputs =
 
 let () =
 	Palette.of_list (0x000000 :: 0xFFFFFF :: (Palette.to_list (Palette.generate_plasma_palette 256))) |>
-	Screen.create 640 480 1 |>
-	Base.run "File drop test" (Some boot) tick
+	Screen.create "File drop test" (640, 480) |>
+	Base.run ~boot tick

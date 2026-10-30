@@ -101,5 +101,5 @@ let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) _inputs: Framebuf
 
 let () =
   Palette.load_tic80_palette tic80_palette |>
-  Screen.create 640 480 1 |>
-  Base.run "Koch snowflake" None tick
+  Screen.create "Koch snowflake" (640, 480) |>
+  Base.run tick

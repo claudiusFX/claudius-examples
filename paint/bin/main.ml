@@ -61,5 +61,5 @@ let tick _ s buffer inputs : Framebuffer.t =
 
 let () =
 	Palette.generate_mac_palette () |>
-	Screen.create 320 200 4 |>
-	Base.run "Claudius Paint" (Some boot) tick
+	Screen.create ~scale:4 "Claudius Paint" (320, 200) |>
+	Base.run ~boot tick

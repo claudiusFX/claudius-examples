@@ -1,4 +1,4 @@
 (executable
  (public_name ellipsespin)
  (name main)
- (libraries claudius.sdl))
+ (libraries claudius_sdl))

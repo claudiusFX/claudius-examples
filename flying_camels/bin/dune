@@ -1,4 +1,4 @@
 (executable
  (public_name flying_camels)
  (name main)
- (libraries claudius.sdl))
+ (libraries claudius_sdl))

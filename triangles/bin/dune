@@ -1,4 +1,4 @@
 (executable
  (public_name triangles)
  (name main)
- (libraries triangles claudius.sdl))
+ (libraries triangles claudius_sdl))

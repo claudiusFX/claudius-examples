@@ -4,16 +4,16 @@ open Claudius_sdl
 let prism_radius = 100.
 let rainbow = [0xE03A3C ; 0xF6821F ; 0xFCB827 ; 0x62BB47 ; 0x009DDC ; 0x963D97]
 
-let draw_light s fb = 
+let draw_light s fb =
   let w, h = Screen.dimensions s in
   for i = 0 to 2 do
     Framebuffer.draw_line 0 ((h / 2) - 30 + i) (w/2) ((h / 2) - 100 + i) 7 fb
   done
 
-let draw_rainbow s fb = 
+let draw_rainbow s fb =
   let w, h = Screen.dimensions s in
   for i = 0 to 5 do
-    Framebuffer.filled_triangle 
+    Framebuffer.filled_triangle
       (w / 2) (((h / 2) - 100 + i))
       w (((h / 2) - 80 + (i * 10)))
       w (((h / 2) - 79 + ((i + 1) * 10)))
@@ -21,7 +21,7 @@ let draw_rainbow s fb =
       fb
   done
 
-let draw_flair s fb = 
+let draw_flair s fb =
   let w, h = Screen.dimensions s in
   let mx, my = ((w / 2) - 42), (((h / 2) - 86)) in
   for i = ((8 * 5) - 1) downto 0 do
@@ -61,5 +61,5 @@ let tick _t _s fb _i = fb
 
 let () =
   Palette.of_list ((Palette.to_list (Palette.generate_mono_palette 8)) @ (rainbow)) |>
-  Screen.create 480 480 1 |>
-  Base.run "Dark Side Of The Moon" (Some boot) tick
+  Screen.create "Dark Side Of The Moon" (480, 480) |>
+  Base.run ~boot tick

@@ -40,5 +40,5 @@ let tick t s p _i =
   buffer
 
 let () =
-  Screen.create 500 500 1 (Palette.load_tic80_palette havrekaka_palette) |>
-  Base.run "Vera Molnár" None tick
+  Screen.create "Vera Molnár" (500, 500) (Palette.load_tic80_palette havrekaka_palette) |>
+  Base.run tick
