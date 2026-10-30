@@ -1,4 +1,4 @@
 (executable
  (public_name universe)
  (name main)
- (libraries universe claudius.sdl))
+ (libraries universe claudius_sdl))

@@ -12,7 +12,7 @@ bug-reports: "https://github.com/mdales/claudius-examples/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.17"}
-  "claudius"
+  "claudius" {>= "2.0.0"}
   "bdfparser"
   "hooke"
   "odoc" {with-doc}
