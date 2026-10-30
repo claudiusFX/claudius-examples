@@ -53,5 +53,5 @@ let tick t s prev _i =
 let () =
   let pal = List.rev (Palette.to_list (Palette.generate_mono_palette 16)) in
   let redpal = List.map (fun x -> x lor 0xff0000) pal in
-  Screen.create ~scale:3 "Red Hexagon" 240 136 (Palette.of_list (List.concat [pal ; redpal])) |>
+  Screen.create ~scale:3 "Red Hexagon" (240, 136) (Palette.of_list (List.concat [pal ; redpal])) |>
   Base.run ~boot tick

@@ -31,5 +31,5 @@ let tick _t s _prev inputs =
 
 let () =
   Palette.of_list (List.rev (Palette.to_list (Palette.generate_plasma_palette 16))) |>
-  Screen.create "Keyboard test" 640 480 |>
+  Screen.create "Keyboard test" (640, 480) |>
   Base.run tick

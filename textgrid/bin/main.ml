@@ -19,5 +19,5 @@ let tick t s fb _i =
 
 let () =
   Palette.of_list (List.rev (0xff0000 :: (Palette.to_list (Palette.generate_mono_palette 255)))) |>
-  Screen.create ~scale:2 "Generative Typography and 8x8" 200 200 |>
+  Screen.create ~scale:2 "Generative Typography and 8x8" (200, 200) |>
   Base.run tick

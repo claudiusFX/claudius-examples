@@ -17,5 +17,5 @@ let tick t s _p _i =
 
 let () =
   Palette.load_tic80_palette havrekaka_palette |>
-  Screen.create ~scale:3 "Anni Albers" 126 226 |>
+  Screen.create ~scale:3 "Anni Albers" (126, 226) |>
   Base.run tick

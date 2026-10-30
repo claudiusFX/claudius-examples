@@ -85,5 +85,5 @@ let tick t s fb _i =
 
 let () =
   Palette.of_list (List.rev (Palette.to_list (Palette.generate_mono_palette 16))) |>
-  Screen.create "Triangle testing" 640 480 |>
+  Screen.create "Triangle testing" (640, 480) |>
   Base.run tick

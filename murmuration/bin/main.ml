@@ -54,5 +54,5 @@ let tick t s fb _i =
 
 let () =
   Palette.of_list [ 0xaaccff ; 0x0 ; 0xff0000 ; 0x0 ; 0x00ff00 ; 0x0 ; 0x0000ff ; 0x0 ] |>
-  Screen.create "Murmuration" 640 480 |>
+  Screen.create "Murmuration" (640, 480) |>
   Base.run tick

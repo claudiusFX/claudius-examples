@@ -12,5 +12,5 @@ let tick t s _prev _i =
   )
 
 let () =
-  Screen.create "Plasma" 640 480 (Palette.generate_plasma_palette 1024) |>
+  Screen.create "Plasma" (640, 480) (Palette.generate_plasma_palette 1024) |>
   Base.run tick

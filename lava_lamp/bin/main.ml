@@ -17,5 +17,5 @@ let tick t s _p _i =
 
 let () =
   Palette.generate_plasma_palette 16 |>
-  Screen.create "Lava Lamp" 480 640 |>
+  Screen.create "Lava Lamp" (480, 640) |>
   Base.run tick

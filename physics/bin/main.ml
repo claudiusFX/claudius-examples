@@ -80,5 +80,5 @@ let tick (t : int) (screen : Screen.t) (_prev : Framebuffer.t) _inputs : Framebu
 
 let () =
   Palette.of_list (0x666666 :: (Palette.to_list (Palette.generate_plasma_palette 255))) |>
-  Screen.create "Use a Physics Library" 640 480 |>
+  Screen.create "Use a Physics Library" (640, 480) |>
   Base.run tick

@@ -65,5 +65,5 @@ let tick t s _p _i =
 
 let () =
   Palette.of_list (generate_mono_palette 16) |>
-  Screen.create "Walking mesh" 640 480 |>
+  Screen.create "Walking mesh" (640, 480) |>
   Base.run tick

@@ -24,5 +24,5 @@ let tick t s _p _i =
 
 let () =
   Palette.load_tic80_palette vapour_palette |>
-  Screen.create "Tunnel" 640 480 |>
+  Screen.create "Tunnel" (640, 480) |>
   Base.run tick

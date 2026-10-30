@@ -12,5 +12,5 @@ let tick t s _p _i =
 
 let () =
   Palette.generate_plasma_palette 18 |>
-  Screen.create "Spinning Ellipse" 640 480 |>
+  Screen.create "Spinning Ellipse" (640, 480) |>
   Base.run tick

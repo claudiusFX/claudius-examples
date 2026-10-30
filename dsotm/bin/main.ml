@@ -61,5 +61,5 @@ let tick _t _s fb _i = fb
 
 let () =
   Palette.of_list ((Palette.to_list (Palette.generate_mono_palette 8)) @ (rainbow)) |>
-  Screen.create "Dark Side Of The Moon" 480 480 |>
+  Screen.create "Dark Side Of The Moon" (480, 480) |>
   Base.run ~boot tick

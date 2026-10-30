@@ -52,5 +52,5 @@ let tick t s _f _e =
 let () =
   let image_filenames = [ "flying_camels/images/logo48.png" ] in
   Palette.generate_classic_vga_palette ()
-  |> Screen.create ~image_filenames "Flying camels" 640 480
+  |> Screen.create ~image_filenames "Flying camels" (640, 480)
   |> Base.run tick
